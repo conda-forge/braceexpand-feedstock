@@ -1,18 +1,18 @@
 {% set name = "braceexpand" %}
-{% set version = "0.1.5" %}
+{% set version = "0.1.6" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: d3d932030c3ab4740b33df68a58d70f3a10368f33b3a56eb951da649bec0bb52
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: c1bf4fdc1713e46feacac0f1acbbb12239bdda7c7c4183fc8fb22bf6f285f854
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -26,11 +26,11 @@ test:
     - braceexpand
 
 about:
-  home: "https://github.com/trendels/braceexpand"
-  license: "MIT"
-  license_family: "MIT"
-  license_file: "LICENSE"
-  summary: "Bash-style brace expansion for Python"
+  home: https://github.com/trendels/braceexpand
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Bash-style brace expansion for Python
 
 extra:
   recipe-maintainers:
