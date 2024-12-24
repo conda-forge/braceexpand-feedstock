@@ -10,18 +10,20 @@ source:
   sha256: e6e539bd20eaea53547472ff94f4fb5c3d3bf9d0a89388c4b56663aba765f705
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   host:
     - pip
-    - python >=2.7
+    - python {{ python_min }}
   run:
-    - python >=2.7
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - braceexpand
 
